@@ -1,0 +1,75 @@
+.App {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 40px;
+  background-color: white;
+  border-bottom: 1px solid #eee;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+nav a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #0071e3;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+.hero {
+  text-align: center;
+  padding: 80px 20px;
+  background-color: #f5f5f7;
+}
+
+.hero h2 {
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+.hero p {
+  margin: 20px 0;
+  font-size: 1.2rem;
+  color: #666;
+}
+
+button {
+  background-color: #0071e3;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #005bb5;
+}
+
+#services {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: white;
+  border-top: 1px solid #eee;
+  font-size: 0.9rem;
+  color: #999;
+}
