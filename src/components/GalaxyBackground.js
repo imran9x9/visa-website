@@ -7,7 +7,7 @@ export default function GalaxyBackground() {
   const texture = useLoader(TextureLoader, galaxyImage);
   return (
     <mesh scale={[-1, 1, 1]}>
-      <sphereGeometry args={[80, 64, 64]} />
+      <sphereGeometry args={[5, 64, 64]} />
       <meshBasicMaterial map={texture} side={2} />
     </mesh>
   );
