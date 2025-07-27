@@ -1,0 +1,36 @@
+{
+  "India": {
+    "states": {
+      "Delhi": ["New Delhi", "Dwarka"],
+      "Maharashtra": ["Mumbai", "Pune", "Nagpur"],
+      "Karnataka": ["Bengaluru", "Mysore", "Hubli"],
+      "Uttar Pradesh": ["Lucknow", "Noida", "Kanpur"]
+    }
+  },
+  "United States": {
+    "states": {
+      "California": ["Los Angeles", "San Francisco", "San Diego"],
+      "Texas": ["Houston", "Dallas", "Austin"],
+      "New York": ["New York City", "Buffalo", "Albany"]
+    }
+  },
+  "Australia": {
+    "states": {
+      "New South Wales": ["Sydney", "Newcastle"],
+      "Victoria": ["Melbourne", "Geelong"],
+      "Queensland": ["Brisbane", "Gold Coast"]
+    }
+  },
+  "United Kingdom": {
+    "states": {
+      "England": ["London", "Manchester", "Birmingham"],
+      "Scotland": ["Edinburgh", "Glasgow"]
+    }
+  },
+  "United Arab Emirates": {
+    "states": {
+      "Dubai": ["Dubai City"],
+      "Abu Dhabi": ["Abu Dhabi City"]
+    }
+  }
+}
