@@ -1,5 +1,7 @@
 :root {
   --color-background: #faf9f6;
+  --color-white: #fff;
+  --color-Black: #000000;
   --color-surface: #eaf0fd;
   --color-card-border: #e1e4eb;
   --color-btn-primary-text: #fff;
@@ -35,13 +37,13 @@ a { color: var(--color-primary); text-decoration: none; }
 a:hover { color: var(--color-primary-hover); }
 
 .global-header {
-  width: 100vw;
   position: sticky;
   top: 0;
-  background: #fff;
-  border-bottom: 1px solid var(--color-border);
-  z-index: 100;
-  box-shadow: 0 1px 4px rgba(100,130,160,0.04);
+  background: rgba(255, 255, 255, 0.20); /* Existing line, semi-transparent white */
+  backdrop-filter: saturate(180%) blur(15px);
+  border-bottom: none;
+  z-index: 1000;
+  transition: all var(--duration-normal) var(--ease-standard);
 }
 
 .global-header-content {
@@ -81,15 +83,14 @@ a:hover { color: var(--color-primary-hover); }
 
 /* Hero Section */
 .hero-section {
-  min-height: 550px;
-  height: 62vh;
   position: relative;
-  background: linear-gradient(137deg,#f5f5f2 0%, #f8f7f4 100%);
+  width: 100vw;
+  height: 100vh;         /* Take the full viewport height */
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: 40px;
-  padding-bottom: 50px;
+  background: #070b34;   /* fallback dark for galaxy effect */
   overflow: hidden;
 }
 
@@ -97,7 +98,7 @@ a:hover { color: var(--color-primary-hover); }
   position: absolute;
   left: 50%; top: 50%;
   transform: translate(-50%,-50%);
-  width: 1000px; height: 700px;
+  width: 100vw; height: 100vh;
   pointer-events: none;
   z-index: 2;
 }
@@ -222,4 +223,20 @@ footer p {
   #services h3 { font-size: 1.02rem; margin-bottom: 19px;}
   .services-list li { padding: 11px 0; margin-bottom: 8px; font-size: 0.97rem;}
   footer { padding: 10px 0 9px 0; font-size: 0.88rem;}
+}
+/* Header color when NOT scrolled */
+.global-header {
+  transition: background 0.32s, color 0.32s;
+}
+
+.global-header-content .logo,
+.global-header-content .global-nav a {
+  color: var(--color-Black); /* Default: white text */
+  transition: color 0.32s;
+}
+
+/* When header has .scrolled, change text color */
+.global-header.scrolled .logo,
+.global-header.scrolled .global-nav a {
+  color: var(--color-white);  /* Change to dark, or any you like */
 }

@@ -1,12 +1,35 @@
 import React, { Suspense, useEffect, useState } from "react";
-import { Canvas } from "@react-three/fiber";
-import { OrbitControls, Html } from "@react-three/drei";
+import { Canvas, useLoader } from "@react-three/fiber";
+import { OrbitControls, Html, Stars } from "@react-three/drei";
+import { TextureLoader } from "three";
+import galaxyImage from "./galaxy.jpg";
 import "./App.css";
+
+// --- Galaxy 3D Background ---
+function GalaxyBackground() {
+  const texture = useLoader(TextureLoader, galaxyImage);
+  return (
+    <mesh scale={[-1, 1, 1]}>
+      <sphereGeometry args={[80, 64, 64]} />
+      <meshBasicMaterial map={texture} side={2} />
+    </mesh>
+  );
+}
 
 // --- HEADER ---
 function Header() {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => {
+      setScrolled(window.scrollY > 40); // Change value as needed
+    };
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <header className="global-header">
+    <header className={`global-header${scrolled ? " scrolled" : ""}`}>
       <div className="global-header-content">
         <div className="logo">Visa Services</div>
         <nav className="global-nav">
@@ -70,7 +93,6 @@ function randomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-// Pass flagOrder as a prop so it can be changed dynamically
 function GlobeFlags({ flagOrder }) {
   const flagMeshes = [];
   const N = flagOrder.length;
@@ -95,10 +117,10 @@ function GlobeFlags({ flagOrder }) {
           src={flags[idx].src}
           alt={flags[idx].alt}
           style={{
-            width: "210px",
-            height: "140px",
+            width: "300px",
+            height: "200px",
             borderRadius: "14px",
-            border: "2px solid #000000",
+            border: "2px solid #fff",
             boxShadow: "0 4px 18px rgba(0,0,0,0.18)"
           }}
         />
@@ -110,7 +132,6 @@ function GlobeFlags({ flagOrder }) {
 
 // -------------- MAIN APP ---------------
 export default function App() {
-  // New: flag order state and shuffle logic
   const [flagOrder, setFlagOrder] = useState(
     () => Array.from({ length: flags.length }, (_, i) => i)
   );
@@ -119,7 +140,6 @@ export default function App() {
     const interval = setInterval(() => {
       setFlagOrder(prev => {
         let next = prev.slice();
-        // Swap a few flags each time
         let numSwap = randomInt(2, 4);
         for (let i = 0; i < numSwap; ++i) {
           let idx1 = randomInt(0, next.length - 1);
@@ -128,7 +148,7 @@ export default function App() {
         }
         return next;
       });
-    }, 1600); // Change every 1.6s (adjust as you like)
+    }, 1600);
     return () => clearInterval(interval);
   }, []);
 
@@ -136,14 +156,24 @@ export default function App() {
     <div>
       <Header />
       <div className="hero-section">
-        {/* Globe 3D */}
         <div className="globe-3d-canvas">
           <Canvas camera={{ position: [0, 0, 24], fov: 38 }}>
+            {/* 3D Galaxy Background */}
+            <GalaxyBackground />
+            {/* Optional Starfield Overlay */}
+            <Stars
+              radius={70}
+              depth={180}
+              count={2800}
+              factor={4.5}
+              saturation={0.93}
+              fade
+              speed={0.2}
+            />
             <ambientLight intensity={1.5} />
             <Suspense fallback={null}>
               <GlobeFlags flagOrder={flagOrder} />
             </Suspense>
-            {/* Rotates Globe */}
             <OrbitControls autoRotate autoRotateSpeed={1.25} enableZoom={false} enablePan={false} />
           </Canvas>
         </div>
