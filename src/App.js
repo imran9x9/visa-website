@@ -1,3 +1,5 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Contact from "./Contact";
 import React, { Suspense, useEffect, useState } from "react";
 import { Canvas, useLoader } from "@react-three/fiber";
 import { OrbitControls, Html, Stars } from "@react-three/drei";
@@ -31,7 +33,7 @@ function Header() {
   return (
     <header className={`global-header${scrolled ? " scrolled" : ""}`}>
       <div className="global-header-content">
-        <div className="logo">Visa Services</div>
+        <img src={require('./yourlogo.png')} alt="helloviza" className="logo" style={{height: 48}} />
         <nav className="global-nav">
           <a href="#services">Services</a>
           <a href="#apply">Apply Now</a>
@@ -164,7 +166,7 @@ function GlobeFlags({ flagOrder }) {
             width: "300px",
             height: "200px",
             borderRadius: "14px",
-            border: "2px solid #fff",
+            border: "2px solid #000000",
             boxShadow: "0 4px 18px rgba(0,0,0,0.18)"
           }}
         />

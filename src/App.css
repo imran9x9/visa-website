@@ -39,7 +39,7 @@ a:hover { color: var(--color-primary-hover); }
 .global-header {
   position: sticky;
   top: 0;
-  background: rgba(255, 255, 255, 0.20); /* Existing line, semi-transparent white */
+  background: #fff; /* Existing line, semi-transparent white */
   backdrop-filter: saturate(180%) blur(15px);
   border-bottom: none;
   z-index: 1000;
@@ -52,7 +52,7 @@ a:hover { color: var(--color-primary-hover); }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 40px;
+  height: 70px;
   padding: 0 50px;
 }
 
@@ -159,7 +159,7 @@ a:hover { color: var(--color-primary-hover); }
 /* Service Section */
 #services {
   padding: 56px 0 26px 0;
-  background: #d5efff;
+  background: #fff;
   text-align: center;
 }
 #services h3 {
@@ -178,11 +178,11 @@ a:hover { color: var(--color-primary-hover); }
 .services-list li {
   padding: 22px 0;
   margin-bottom: 18px;
-  background: var(--color-secondary);
+  background: #00477f;
   border-radius: var(--radius-base);
   font-size: 1.08rem;
   font-weight: 500;
-  color: var(--color-text);
+  color: #fff;
   transition: background 0.16s, transform 0.16s;
   cursor: pointer;
   text-align: center;
@@ -190,8 +190,8 @@ a:hover { color: var(--color-primary-hover); }
   box-shadow: 0 2px 14px rgba(0,0,0,0.04);
 }
 .services-list li:hover {
-  background: var(--color-secondary-hover);
-  color: #21808d;
+  background: #d06549;
+  color: #fff;
   transform: translateY(-2px) scale(1.03);
 }
 
@@ -203,7 +203,7 @@ footer {
   font-size: 1rem;
 }
 footer p {
-  color: #fff;
+  color: #000;
   font-size: 1 rem;
   margin: 0;
 }
@@ -241,7 +241,7 @@ footer p {
   color: var(--color-white);  /* Change to dark, or any you like */
 }
 .site-footer {
-  background: #2A4B7C;
+  background: #fff;
   color: #fff;
   padding: 46px 0 16px 0;
   font-size: 1rem;
@@ -266,12 +266,12 @@ footer p {
 }
 .footer-address span {
   display: block;
-  color: #fff;
+  color: #000;
   margin-bottom: 5px;
   font-size: 0.97rem;
 }
 .footer-address a {
-  color: #fff;
+  color: #000;
   text-decoration: underline;
   transition: color 0.14s;
 }
@@ -282,19 +282,19 @@ footer p {
   min-width: 180px;
 }
 .footer-links h4 {
-  color: #fff;
+  color: #000;
   font-size: 1.04rem;
   margin-bottom: 12px;
 }
 .footer-links a {
   display: block;
-  color: #fff;
+  color: #000;
   margin-bottom: 7px;
   font-size: 0.99rem;
   text-decoration: none;
   transition: color 0.13s;
 }
-.footer-links a:hover { color: #ffc766; }
+.footer-links a:hover { color: #00076f; }
 
 .footer-social {
   min-width: 120px;
@@ -329,4 +329,15 @@ footer p {
 
 @media (max-width: 900px) {
   .footer-main { flex-direction: column; align-items: flex-start; gap: 22px; }
+}
+.contact-section input,
+.contact-section textarea {
+  border: 1.5px solid #e1e4eb;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  font-size: 1rem;
+}
+
+.contact-section button:hover {
+  background: #165c6c;
 }
