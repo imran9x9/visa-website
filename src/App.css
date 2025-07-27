@@ -159,7 +159,7 @@ a:hover { color: var(--color-primary-hover); }
 /* Service Section */
 #services {
   padding: 56px 0 26px 0;
-  background: var(--color-background);
+  background: #d5efff;
   text-align: center;
 }
 #services h3 {
@@ -203,7 +203,7 @@ footer {
   font-size: 1rem;
 }
 footer p {
-  color: #000000;
+  color: #fff;
   font-size: 1 rem;
   margin: 0;
 }
@@ -239,4 +239,94 @@ footer p {
 .global-header.scrolled .logo,
 .global-header.scrolled .global-nav a {
   color: var(--color-white);  /* Change to dark, or any you like */
+}
+.site-footer {
+  background: #2A4B7C;
+  color: #fff;
+  padding: 46px 0 16px 0;
+  font-size: 1rem;
+  text-align: left;
+}
+.footer-main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1250px;
+  margin: 0 auto;
+  padding: 0 36px;
+  gap: 40px;
+}
+.footer-brand {
+  flex: 1 1 260px;
+  min-width: 220px;
+}
+.footer-logo {
+  width: 130px;
+  margin-bottom: 16px;
+}
+.footer-address span {
+  display: block;
+  color: #fff;
+  margin-bottom: 5px;
+  font-size: 0.97rem;
+}
+.footer-address a {
+  color: #fff;
+  text-decoration: underline;
+  transition: color 0.14s;
+}
+.footer-links {
+  display: flex;
+  gap: 38px;
+  flex: 1 1 300px;
+  min-width: 180px;
+}
+.footer-links h4 {
+  color: #fff;
+  font-size: 1.04rem;
+  margin-bottom: 12px;
+}
+.footer-links a {
+  display: block;
+  color: #fff;
+  margin-bottom: 7px;
+  font-size: 0.99rem;
+  text-decoration: none;
+  transition: color 0.13s;
+}
+.footer-links a:hover { color: #ffc766; }
+
+.footer-social {
+  min-width: 120px;
+  text-align: left;
+}
+.footer-social h4 {
+  color: #fff;
+  font-size: 1.02rem;
+  margin-bottom: 12px;
+}
+.footer-social a {
+  margin-right: 11px;
+  display: inline-block;
+}
+.footer-social img {
+  width: 28px; height: 28px;
+  filter: brightness(0.95) contrast(1.11);
+  transition: filter 0.15s;
+}
+.footer-social img:hover {
+  filter: brightness(1.4) saturate(2);
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 28px;
+  border-top: 1px solid #294467;
+  padding-top: 11px;
+  font-size: 0.97rem;
+  color: #fff;
+}
+
+@media (max-width: 900px) {
+  .footer-main { flex-direction: column; align-items: flex-start; gap: 22px; }
 }
